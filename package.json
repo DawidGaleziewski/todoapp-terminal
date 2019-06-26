@@ -43,5 +43,13 @@
     "g": "^2.0.1",
     "gifsicle": "^4.0.1",
     "gulp-cli": "^2.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DawidGaleziewski/todoapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DawidGaleziewski/todoapp/issues"
+  },
+  "homepage": "https://github.com/DawidGaleziewski/todoapp#readme"
 }

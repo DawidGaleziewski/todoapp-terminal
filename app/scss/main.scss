@@ -1,3 +1,5 @@
+@import './imports/normalize';
+
 /* GENERAL STYLES */
 
 *, 
@@ -21,12 +23,11 @@ p, ul, li {
 .terminal {
 	font-family: 'Ubuntu Mono', monospace;
 	color: white;
-    width: 100vw;
-    font-size: 1.5rem;
-
-	-webkit-box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
-	box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
+  width: 100vw;
+  font-size: 1.5rem;
+  -webkit-box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
 }
 
 .terminal__head {
@@ -162,48 +163,11 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq*/
   }
   
   
-  @keyframes "blink" {
-    from, to {
+  @keyframes blink {
+    from {
       color: transparent;
     }
-    50% {
+    to {
       color: black;
     }
   }
-  
-  @-moz-keyframes blink {
-    from, to {
-      background-color: transparent;
-    }
-    50% {
-      background-color: white;
-    }
-  }
-  
-  @-webkit-keyframes "blink" {
-    from, to {
-      background-color: transparent;
-    }
-    50% {
-      background-color: white;
-    }
-  }
-  
-  @-ms-keyframes "blink" {
-    from, to {
-      background-color: transparent;
-    }
-    50% {
-      background-color: white;
-    }
-  }
-  
-  @-o-keyframes "blink" {
-    from, to {
-      background-color: transparent;
-    }
-    50% {
-      background-color: white;
-    }
-  }
-  
