@@ -14,7 +14,7 @@ $(document).ready(
             event.preventDefault();
         })
 
-        // Adding items
+        // Adding items to list
         btnAdd.click(function(){
             let currentTasks = $('#current-tasks');
             const input = $('#input');
