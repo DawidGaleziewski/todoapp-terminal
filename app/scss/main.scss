@@ -18,116 +18,99 @@ p, ul, li {
 }
 
 /* TERMINAL WINDOW STYLE */
-
-
 .terminal {
 	font-family: 'Ubuntu Mono', monospace;
 	color: white;
   width: 100vw;
   font-size: 1.5rem;
-  -webkit-box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
   box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
+
+  .head {
+    background-color: #45443f;
+    background: linear-gradient(#616056, #403f3a);
+    padding: 0.3rem;
+    border-radius: 5px 5px 0 0;
+
+    &__options {
+      list-style: none;
+      display: inline-block;
+      margin: 0 0.5rem 0 0.2rem;
+
+      .icon {
+        vertical-align: middle;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50px;
+        display: inline-block;
+        background-color: #807e7c;
+        background: linear-gradient(#807e7c, #616056);
+        text-align: center;
+        color: #45443f;
+        font-weight: bold;
+        font-size: 1.1rem;
+
+        &--close {
+          background-color: #dd5c24;
+          background: linear-gradient(#e2885e, #dd5c24);
+          text-align: center;
+        }
+      }
+    }
+
+    &__whoami {
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+  }
+
+
+  .window {
+    background-color: #300a24;
+    height: 500px;
+    padding: 0.3rem;
+    opacity: 0.9;
+
+    &__text--user {
+      color: #87e033;
+      font-weight: bold;
+    }
+
+    .tilde {
+      color: #789ac8;
+    
+    }
+    
+    .grep {
+      color: #ef2827;
+      font-weight: bold;
+    }
+    
+    .dir {
+      font-weight: bold;
+      color: #789ac8;
+    }
+
+  }
 }
-
-.terminal__head {
-	background-color: #45443f;
-	background: linear-gradient(#616056, #403f3a);
-	padding: 0.3rem;
-	border-radius: 5px 5px 0 0;
-}
-
-.terminal__head__options {
-	list-style: none;
-	display: inline-block;
-	margin: 0 0.5rem 0 0.2rem;
-}
-
-
-.terminal__head__option_li {
-	vertical-align: middle;
-	width: 1.2rem;
-	height: 1.2rem;
-	border-radius: 50px;
-	display: inline-block;
-	background-color: #807e7c;
-	background: linear-gradient(#807e7c, #616056);
-	text-align: center;
-	color: #45443f;
-	font-weight: bold;
-	font-size: 1.1rem;
-}
-
-.terminal__head__option_li--close {
-	background-color: #dd5c24;
-	background: linear-gradient(#e2885e, #dd5c24);
-	text-align: center;
-}
-
-.terminal__head__option_li--close > img {
-	display: inline-block;
-	width: 67%;
-	vertical-align: middle;
-}
-
-.terminal__head__whoami {
-	display: inline-block;
-	vertical-align: middle;
-	font-weight: bold;
-}
-
-.terminal__window {
-	background-color: #300a24;
-	height: 500px;
-	padding: 0.3rem;
-	opacity: 0.9;
-}
-
-.terminal__window__text--user {
-	color: #87e033;
-	font-weight: bold;
-}
-
-.tilde {
-	color: #789ac8;
-
-}
-
-.grep {
-	color: #ef2827;
-	font-weight: bold;
-}
-
-.dir {
-	font-weight: bold;
-	color: #789ac8;
-}
-
-.terminal__window_ul {
-	list-style: none;
-}
-
 
 /* FORM STYLE */
-.main-form {
+.form {
     display: inline-block;
-}
+    &__input {
+      background-color: inherit;
+      border: none;
+      color: #789ac8;
+      font-weight: bold;
+      caret-color: #fff;
+      
+      &::placeholder{
+        color: white;
+        font-weight: normal;
+    }
+  }
 
-.form__input::placeholder{
-    color: white;
-    font-weight: normal;
-}
-
-.form__input {
-    background-color: inherit;
-    border: none;
-    color: #789ac8;
-    font-weight: bold;
-    caret-color: #fff;
-
-}
-
-.form__btn {
+  &__btn {
     width: 6rem;
     background-color: inherit;
     color: #fff;
@@ -135,30 +118,28 @@ p, ul, li {
     font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
+
+    &--add {
+      color: #87e033;
+    }
+  
+    &--remove{
+      color: #ef2827;
+    }
+  }
+
+
 }
 
-.form__btn--add {
-    color: #87e033;
-}
-
-.form__btn--remove{
-    color: #ef2827;
-}
 
 
-/*Blinking animation is not mine.
-I used this codepen:
-https://codepen.io/ArtemGordinsky/pen/GnLBq*/
+// Animation
 .prompt {
     background-color: white;
     margin-left: 0.3rem;
     animation: 1s blink step-end infinite;
     color: transparent;
     font-size: 1rem;
-    -webkit-animation: 1s blink step-end infinite;
-    -moz-animation: 1s blink step-end infinite;
-    -ms-animation: 1s blink step-end infinite;
-    -o-animation: 1s blink step-end infinite;
     animation: 1s blink step-end infinite;
   }
   

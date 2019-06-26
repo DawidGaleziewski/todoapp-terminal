@@ -2,10 +2,10 @@
 $(document).ready(
     function(){
         // Variables
-       const form = $('.main-form');
-       const btnAdd = $('.form__btn--add');
-       const btnRemove = $('.form__btn--remove');
-       const btnClear = $('.form__btn--clear');
+       const form = $('#main-form');
+       const btnAdd = $('#add');
+       const btnRemove = $('#remove');
+       const btnClear = $('#clear');
        let currentTaskIndex = 0;
        
         
@@ -16,15 +16,15 @@ $(document).ready(
 
         // Adding items
         btnAdd.click(function(){
-            let currentTasks = $('.current-tasks');
-            const input = $('.form__input');
+            let currentTasks = $('#current-tasks');
+            const input = $('#input');
             currentTasks.append('<li>' + (currentTaskIndex + 1) +'. ' + input.val() + '</li>').addClass('dir');
             currentTaskIndex ++;
         })
 
         // Removing items
         btnRemove.click(function(){
-            let currentTasks = $('.current-tasks');
+            let currentTasks = $('#current-tasks');
             currentTasks.find('li').eq(currentTaskIndex - 1 ).remove()
             currentTaskIndex--
             console.log(currentTaskIndex)
@@ -32,7 +32,7 @@ $(document).ready(
 
         // Clear all items
         btnClear.click(function(){
-            let currentTasks = $('.current-tasks');
+            let currentTasks = $('#current-tasks');
             currentTasks.empty();
         })
 

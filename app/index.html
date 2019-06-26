@@ -16,45 +16,44 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="main-container">
-        <div class= "terminal">
-            <div class= "terminal__head">
-                <ul class="terminal__head__options">
-                    <li class="terminal__head__option_li terminal__head__option_li--close">
+
+        <section class= "terminal">
+            <div class= "head">
+                <ul class="head__options">
+                    <li class="icon icon--close">
                     </li>
-                    <li class="terminal__head__option_li">
+                    <li class="icon">
                     </li>
-                    <li class="terminal__head__option_li"></li>
+                    <li class="icon"></li>
                 </ul>
-                <p class="terminal__head__whoami">ToDo @list</p>
+                <p class="head__whoami">ToDo @list</p>
             </div>
-            <div class="terminal__window">
+            <div class="window">
                 <p>
                     <span class="grep">My list to do:</span>
                 </p>
                 <p>
-                    <span class="terminal__window__text--user">admin@box</span>:<span class="tilde">~</span> dir /ToDo
+                    <span class="window__text--user">admin@box</span>:<span class="tilde">~</span> dir /ToDo
                 </p>
 
                 <p>
-                    <span class="terminal__window__text--user">admin@box</span>:<span class="tilde">~</span><span class="dir">/0. Use Dawids ToDo app</span>
+                    <span class="window__text--user">admin@box</span>:<span class="tilde">~</span><span class="dir">/0. Use Dawids ToDo app</span>
                 </p>
 
-                <ul class="current-tasks">
+                <ul id ="current-tasks" class="current-tasks">
                     
                 </ul>
-      
-                <form class="main-form" name="toDoList">
-                    <span         class="terminal__window__text--user">admin@box</span>:<span class="tilde">~</span>$
+
+                <form id="main-form" class="form" name="toDoList">
+                    <span class="window__text--user">admin@box</span>:<span class="tilde">~</span>$
                     <span class="prompt">|</span>
-                    <input class="form__input" type="text" name="listItem" placeholder="What do I want to do?">
-                    <input class="form__btn form__btn--add" type="submit" value="Add">
-                    <input class="form__btn form__btn--remove" type="submit" value="Remove">
-                    <input class="form__btn form__btn--clear" type="submit" value="Clear">
+                    <input id= "input" class="form__input" type="text" name="listItem" placeholder="What do I want to do?">
+                    <input id= "add" class="form__btn form__btn--add" type="submit" value="Add">
+                    <input id="remove" class="form__btn form__btn--remove" type="submit" value="Remove">
+                    <input id="clear" class="form__btn form__btn--clear" type="submit" value="Clear">
                 </form>
             </div>
-        </div>
-    </div>
+        </section>
 
     
     <!-- Jquery cdn -->
