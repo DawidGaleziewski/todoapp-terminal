@@ -6,6 +6,9 @@
        const btnAdd = $('#add');
        const btnRemove = $('#remove');
        const btnClear = $('#clear');
+       if (localStorage.getItem('tasks') === null){
+            localStorage.setItem('tasks',JSON.stringify([]))
+       }
        
 
 
@@ -18,6 +21,8 @@
             getTasks().forEach((task)=> {
                 currentTasks.append('<li>' + task + '</li>').addClass('dir');
             })
+
+            createFolders();
         }
 
        //get all tasks in local storage    
@@ -28,7 +33,7 @@
        //add new task to local storage
        const addTask = function(task){
             
-            const newArray = getTasks();
+            let newArray = getTasks();
             const input = $('#input');
             newArray.push(input.val());
             input.val('');
@@ -50,6 +55,7 @@
             const newArray = [];
             localStorage.setItem('tasks', JSON.stringify(newArray));
             updateTaskState();
+            
        }
 
 
@@ -64,9 +70,11 @@
 
         // seems the button gets clicked two times for some reason
         // Adding items to list
-        btnAdd.click(()=>{
-            addTask()     
+        btnAdd.click(function(){
+            addTask() 
         })
+                
+        
 
         // Removing items
         btnRemove.click(function(){
@@ -81,9 +89,9 @@
         // Creating folders 
         const createFolders = function(){
             const foldersTray = $('#folders-tray');
+            foldersTray.empty();
             const tasks = getTasks()
             tasks.forEach((task)=>{
-
                 foldersTray.append(
                     `<div class="folder">
                         <span class="folder__icon">
@@ -96,10 +104,11 @@
             })
         }
 
-        createFolders()
+        // createFolders()
 
         // Load all tasks from local storage
         updateTaskState();
+        createFolders();
 
     //    console.log(currentTasks)
 //     }
