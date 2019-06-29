@@ -6,6 +6,7 @@
        const btnAdd = $('#add');
        const btnRemove = $('#remove');
        const btnClear = $('#clear');
+       
 
 
     // Operations on local storage
@@ -71,6 +72,22 @@
             removeAllTasks();
             updateTaskState();
         })
+
+        // Creating folders 
+        const foldersTray = $('folders-tray');
+        getTasks().forEach((task)=>{
+            foldersTray
+            console.log(task)
+        })
+
+        
+        
+        // foldersTray
+        // <div class="folder">
+        // <span class="folder-title">
+        //         New task
+        // </span>
+        // </div>
 
         // Load all tasks from local storage
         updateTaskState();
