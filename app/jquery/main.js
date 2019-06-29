@@ -10,6 +10,16 @@
 
 
     // Operations on local storage
+
+        // Update site with new tasks state
+        const updateTaskState = function(){
+            const currentTasks = $('#current-tasks');
+            currentTasks.empty();
+            getTasks().forEach((task)=> {
+                currentTasks.append('<li>' + task + '</li>').addClass('dir');
+            })
+        }
+
        //get all tasks in local storage    
        const getTasks = function(){
         return JSON.parse(localStorage.getItem('tasks'));
@@ -17,34 +27,32 @@
 
        //add new task to local storage
        const addTask = function(task){
-            let newArray = getTasks();
-            newArray.push(task);
+            
+            const newArray = getTasks();
+            const input = $('#input');
+            newArray.push(input.val());
+            input.val('');
+            // console.log(localStorage)
             localStorage.setItem('tasks', JSON.stringify(newArray));
-            return newArray;
+            updateTaskState();
+
        }
 
        // remove last task from local storage
        const removeLastTask =function(){
-            let newArray = getTasks();
+            const newArray = getTasks();
             newArray.pop();
             localStorage.setItem('tasks', JSON.stringify(newArray));
-            return newArray;
+            updateTaskState();
        }
 
        const removeAllTasks = function(){
-            let newArray = [];
+            const newArray = [];
             localStorage.setItem('tasks', JSON.stringify(newArray));
-            return newArray;
+            updateTaskState();
        }
 
-        // Update site with new tasks state
-        const updateTaskState = function(){
-            let currentTasks = $('#current-tasks');
-            currentTasks.empty();
-            getTasks().forEach((task)=> {
-                currentTasks.append('<li>' + task + '</li>').addClass('dir');
-            })
-        }
+
 
 
 
@@ -54,40 +62,41 @@
             event.preventDefault();
         })
 
+        // seems the button gets clicked two times for some reason
         // Adding items to list
-        btnAdd.click(function(){
-            const input = $('#input').val();
-            addTask(input);
-            updateTaskState();
+        btnAdd.click(()=>{
+            addTask()     
         })
 
         // Removing items
         btnRemove.click(function(){
             removeLastTask();
-            updateTaskState();
         })
 
         // Clear all items
         btnClear.click(function(){
             removeAllTasks();
-            updateTaskState();
         })
 
         // Creating folders 
-        const foldersTray = $('folders-tray');
-        getTasks().forEach((task)=>{
-            foldersTray
-            console.log(task)
-        })
+        const createFolders = function(){
+            const foldersTray = $('#folders-tray');
+            const tasks = getTasks()
+            tasks.forEach((task)=>{
 
-        
-        
-        // foldersTray
-        // <div class="folder">
-        // <span class="folder-title">
-        //         New task
-        // </span>
-        // </div>
+                foldersTray.append(
+                    `<div class="folder">
+                        <span class="folder__icon">
+    
+                        </span>
+                        <span class="folder__title">
+                                ${task}
+                        </span>
+                    </div>`);    
+            })
+        }
+
+        createFolders()
 
         // Load all tasks from local storage
         updateTaskState();
