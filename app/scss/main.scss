@@ -149,6 +149,8 @@ p, ul, li {
 // FOLDERS-TRAY
 
 .folder {
+  position: relative;
+  margin: 5rem;
   background-color: #e14b17;
   // background-image: linear-gradient(-20deg, #e14b17, #efc18c);
   background-image: radial-gradient(circle at top, #efc18c 5%, #e14b17);
@@ -156,6 +158,28 @@ p, ul, li {
   width: 100px;
 
 }
+
+.folder::after {
+  position: absolute;
+  top: -5px;
+  left: 2.5px;
+  content: '';
+  height: 5px;
+  width: 95px;
+  background-color:#f4f4f4;
+}
+
+.folder::before{
+  position: absolute;
+  top: -10px;
+  left: 2.5px;
+  content: '';
+  height: 5px;
+  width: 25px;
+  border-radius: 2px 2px 0 0;
+  background-color:#f4f4f4;
+}
+
 // #efc18c
 // #e14b17
 // #f4f4f4

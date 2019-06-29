@@ -7,6 +7,11 @@ $(document).ready(
        const btnRemove = $('#remove');
        const btnClear = $('#clear');
        let currentTaskIndex = 0;
+
+       // Update local storage
+       const updateLocalStorage  = function(string){
+            localStorage.setItem('tasks', string)
+       }
        
         
        // Preventing form from refreshing on submit
@@ -26,7 +31,7 @@ $(document).ready(
         btnRemove.click(function(){
             let currentTasks = $('#current-tasks');
             currentTasks.find('li').eq(currentTaskIndex - 1 ).remove()
-            currentTaskIndex--
+            currentTaskIndex--;
             console.log(currentTaskIndex)
         })
 
