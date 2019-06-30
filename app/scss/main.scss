@@ -1,17 +1,24 @@
+// IMPORTS
 @import './imports/normalize';
+
+
+
+
+
+// GENERAL
 @import './global/general_styles.scss';
 @import './helpers/breakpoints';
+
+
+
+
+// LAYOUT
 @import './layout/preloader';
 @import './layout/terminal';
 @import './layout/folders';
 
 
-/* GENERAL STYLES START */
-*, 
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+
 
 
 
