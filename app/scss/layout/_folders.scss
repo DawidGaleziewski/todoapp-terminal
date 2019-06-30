@@ -1,0 +1,61 @@
+// FOLDERS-TRAY START
+.folders-tray{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  
+    @include screen-type(tablet-landscape){
+      max-width: 60rem;
+      margin: 4rem auto;
+    }
+    
+  
+    .folder {
+  
+      display: inline-block;
+      margin: 2rem 1rem;
+  
+      .folder__icon {
+        display: block;
+        position: relative;
+        background-color: #e14b17;
+        background-image: radial-gradient(circle at top, #efc18c 5%, #e14b17);
+        height: 50px;
+        width: 100px;
+  
+  
+        &::after {
+          position: absolute;
+          top: -5px;
+          left: 2.5px;
+          content: '';
+          height: 5px;
+          width: 95px;
+          background-color:#f4f4f4;
+        }
+  
+        &::before{
+          position: absolute;
+          top: -8px;
+          left: 2.5px;
+          content: '';
+          height: 5px;
+          width: 25px;
+          border-radius: 2px 2px 0 0;
+          background-color:#f4f4f4;
+        }
+  
+      }
+  
+      &__title{
+        margin: 0.5rem auto;
+        max-width: 100px;
+        display: block;
+        text-align: center;
+        color: #f4f4f4;
+      }
+    
+    }
+  }
+  // FOLDERS-TRAY END

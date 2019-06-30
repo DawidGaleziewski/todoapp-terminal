@@ -1,0 +1,23 @@
+@import '../helpers/breakpoints.scss';
+
+/* GENERAL STYLES START */
+html {
+    font-family: 'Roboto', sans-serif;
+    background-color: #3b042c;
+    background: linear-gradient(to top right, #3b042c 30%,#9d2139 60%, #e6510f 90%) no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include screen-type(tablet-portrait){
+      background: url('../img/beaver-large.jpg') no-repeat center center fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+}
+
+p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+/* GENERAL STYLES END */

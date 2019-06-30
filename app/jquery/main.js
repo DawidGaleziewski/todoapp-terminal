@@ -1,6 +1,6 @@
 // 'use strict'
-// $(document).ready(
-//     function(){
+$(document).ready(
+    function(){
         // Variables
        const form = $('#main-form');
        const btnAdd = $('#add');
@@ -111,5 +111,5 @@
         createFolders();
 
     //    console.log(currentTasks)
-//     }
-// )
+    }
+)

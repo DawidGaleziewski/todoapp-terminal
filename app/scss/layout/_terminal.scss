@@ -1,0 +1,155 @@
+/* TERMINAL WINDOW STYLE START */
+.terminal {
+	font-family: 'Ubuntu Mono', monospace;
+	color: white;
+  width: 100vw;
+  font-size: 1.5rem;
+  box-shadow: 0px 2px 25px -8px rgba(0,0,0,0.75);
+
+  @include screen-type(tablet-landscape){
+    max-width: 60rem;
+    margin: 4rem auto;
+  }
+
+  .head {
+    background-color: #45443f;
+    background: linear-gradient(#616056, #403f3a);
+    padding: 0.3rem;
+    border-radius: 5px 5px 0 0;
+
+    &__options {
+      list-style: none;
+      display: inline-block;
+      margin: 0 0.5rem 0 0.2rem;
+
+      .icon {
+        vertical-align: middle;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50px;
+        display: inline-block;
+        background-color: #807e7c;
+        background: linear-gradient(#807e7c, #616056);
+        text-align: center;
+        color: #45443f;
+        font-weight: bold;
+        font-size: 1.1rem;
+
+        &--close {
+          background-color: #dd5c24;
+          background: linear-gradient(#e2885e, #dd5c24);
+          text-align: center;
+        }
+      }
+    }
+
+    &__whoami {
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+  }
+
+
+  .window {
+    background-color: #300a24;
+    min-height: 500px;
+    padding: 0.3rem;
+    padding-bottom: 5rem;
+    opacity: 0.9;
+
+    &__text--user {
+      color: #87e033;
+      font-weight: bold;
+    }
+
+    .tilde {
+      color: #789ac8;
+    
+    }
+    
+    .grep {
+      color: #ef2827;
+      font-weight: bold;
+    }
+    
+    .dir {
+      font-weight: bold;
+      color: #789ac8;
+    }
+
+    .current-tasks{
+      list-style: none;
+    }
+  }
+}
+
+/* FORM STYLE */
+.form {
+    display: inline-block;
+    &__input {
+      background-color: inherit;
+      border: none;
+      color: #789ac8;
+      font-weight: bold;
+      caret-color: #fff;
+      
+      &::placeholder{
+        color: white;
+        font-weight: normal;
+    }
+  }
+
+  &__btn {
+    width: 6rem;
+    background-color: inherit;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &--add {
+      color: #87e033;
+    }
+  
+    &--remove{
+      color: #ef2827;
+    }
+  }
+}
+
+.prompt {
+    background-color: white;
+    margin-left: 0.3rem;
+    animation: 1s blink 1s infinite;
+    color: transparent;
+    font-size: 1rem;
+  }
+/* TERMINAL WINDOW STYLE END*/
+
+
+
+
+// ANIMATION
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 1
+    }
+
+    51% {
+      opacity: 0
+    }
+
+    99% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
