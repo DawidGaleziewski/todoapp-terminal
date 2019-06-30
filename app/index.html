@@ -16,52 +16,69 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-        <section class= "terminal">
-            <div class= "head">
-                <ul class="head__options">
-                    <li class="icon icon--close">
-                    </li>
-                    <li class="icon">
-                    </li>
-                    <li class="icon"></li>
-                </ul>
-                <p class="head__whoami">ToDo @list</p>
+    <!-- 1. PRELOADER START-->
+    <div class="preloader">
+        
+        <div class="wrapper">
+            <span class="intro">Loading</span>
+            <div class="orbs">
+                <span class="orb"></span>
+                <span class="orb"></span>
+                <span class="orb"></span>
+                <span class="orb"></span>
+                <span class="orb"></span>
             </div>
-            <div class="window">
-                <p>
-                    <span class="grep">My list to do:</span>
-                </p>
-                <p>
-                    <span class="window__text--user">admin@box</span>:<span class="tilde">~</span> dir /ToDo
-                </p>
 
-                <p>
-                    <span class="window__text--user">admin@box</span>:<span class="tilde">~</span><span class="dir">/0. Use Dawids ToDo app</span>
-                </p>
+        </div>
+    </div>	
+    <!-- 1. PRELOADER END-->
+    
 
-                <ul id ="current-tasks" class="current-tasks">
-                    
-                </ul>
+    <section class= "terminal">
+        <div class= "head">
+            <ul class="head__options">
+                <li class="icon icon--close">
+                </li>
+                <li class="icon">
+                </li>
+                <li class="icon"></li>
+            </ul>
+            <p class="head__whoami">ToDo @list</p>
+        </div>
+        <div class="window">
+            <p>
+                <span class="grep">My list to do:</span>
+            </p>
+            <p>
+                <span class="window__text--user">admin@box</span>:<span class="tilde">~</span> dir /ToDo
+            </p>
 
-                <form id="main-form" class="form" name="toDoList">
-                    <span class="window__text--user">admin@box</span>:<span class="tilde">~</span>$
-                    <span class="prompt">|</span>
-                    <input id= "input" class="form__input" type="text" name="listItem" placeholder="What do I want to do?" required>
-                    <input id= "add" class="form__btn form__btn--add" type="submit" value="Add">
-                    <input id="remove" class="form__btn form__btn--remove" type="submit" value="Remove">
-                    <input id="clear" class="form__btn form__btn--clear" type="submit" value="Clear">
-                </form>
-            </div>
-        </section>
+            <p>
+                <span class="window__text--user">admin@box</span>:<span class="tilde">~</span><span class="dir">/0. Use Dawids ToDo app</span>
+            </p>
+
+            <ul id ="current-tasks" class="current-tasks">
+                
+            </ul>
+
+            <form id="main-form" class="form" name="toDoList">
+                <span class="window__text--user">admin@box</span>:<span class="tilde">~</span>$
+                <span class="prompt">|</span>
+                <input id= "input" class="form__input" type="text" name="listItem" placeholder="What do I want to do?" required>
+                <input id= "add" class="form__btn form__btn--add" type="submit" value="Add">
+                <input id="remove" class="form__btn form__btn--remove" type="submit" value="Remove">
+                <input id="clear" class="form__btn form__btn--clear" type="submit" value="Clear">
+            </form>
+        </div>
+    </section>
 
 
 
 
-        <section id="folders-tray" class="folders-tray">
-            
+    <section id="folders-tray" class="folders-tray">
+        
 
-        </section>
+    </section>
 
     
     <!-- Jquery cdn -->

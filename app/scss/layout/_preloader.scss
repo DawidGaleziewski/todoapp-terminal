@@ -1,0 +1,95 @@
+
+.preloader {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #2b001e;
+    transition: opacity ease-out 0.5s;
+
+    .wrapper{ 
+        position: absolute;   
+        width: 12rem;
+        left: 0;
+        right:0;
+        top: 5rem;
+        bottom: 17rem;
+        margin-left: auto; 
+        margin-right: auto;
+
+        .intro {
+            color: #fff;
+            font-size: 3rem;
+            display: block;
+            margin: 2rem 0.7rem;
+        }
+
+        .orbs {
+            display: flex;
+            justify-content: space-between;
+
+            .orb {
+                display: block;
+                width: 5px;
+                height: 5px;
+                background-color: #fff;
+                border-radius: 50px;
+                animation: load 10s infinite 0s;
+            }
+    
+            .orb:nth-of-type(2){
+                animation: load 10s infinite 1s;
+            }
+    
+            .orb:nth-of-type(3){
+                animation: load 10s infinite 2s;
+            }
+    
+            .orb:nth-of-type(4){
+                animation: load 10s infinite 3s;
+            }
+    
+            .orb:nth-of-type(5){
+                animation: load 10s infinite 4s;
+            }
+        }
+
+
+        @include screen-type(phone-medium){
+          bottom : 0.5rem;
+        }
+
+        @include screen-type(phone-medium-landscape){
+          bottom: initial;
+          top: 10rem;
+        }
+              
+    }
+}
+
+// Animation
+@keyframes load {
+    0% {
+        background-color: #fff;
+    }
+
+    49% {
+        background-color: #fff;
+    }
+
+    51% {
+        background-color: #da4531;
+    }
+
+    100% {
+        background-color: #da4531;
+    }
+ 
+}
+
+// js classes
+.stop-preloader {
+    opacity: 0;
+    pointer-events: none;
+}

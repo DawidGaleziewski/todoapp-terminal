@@ -1,6 +1,9 @@
-// 'use strict'
+'use strict'
 $(document).ready(
     function(){
+        // remove preloader
+         $('.preloader').addClass('stop-preloader');
+        
         // Variables
        const form = $('#main-form');
        const btnAdd = $('#add');
@@ -9,7 +12,6 @@ $(document).ready(
        if (localStorage.getItem('tasks') === null){
             localStorage.setItem('tasks',JSON.stringify([]))
        }
-       
 
 
     // Operations on local storage
@@ -33,14 +35,15 @@ $(document).ready(
        //add new task to local storage
        const addTask = function(task){
             
-            let newArray = getTasks();
             const input = $('#input');
-            newArray.push(input.val());
-            input.val('');
-            // console.log(localStorage)
-            localStorage.setItem('tasks', JSON.stringify(newArray));
-            updateTaskState();
-
+            if(input.val() !== ''){
+                let newArray = getTasks();
+                newArray.push(input.val());
+                input.val('');
+                // console.log(localStorage)
+                localStorage.setItem('tasks', JSON.stringify(newArray));
+                updateTaskState();
+            }
        }
 
        // remove last task from local storage
