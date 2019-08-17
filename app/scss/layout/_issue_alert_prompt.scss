@@ -1,0 +1,78 @@
+
+.issue-alert-prompt {
+    
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    
+
+    .head {
+        color: #fff;
+        background-color: #45443f;
+        background: linear-gradient(#616056, #403f3a);
+        padding: 0.3rem;
+        border-radius: 5px 5px 0 0;
+    
+        &__options {
+          list-style: none;
+          display: inline-block;
+          margin: 0 0.5rem 0 0.2rem;
+    
+          .icon {
+            vertical-align: middle;
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50px;
+            display: inline-block;
+            background-color: #807e7c;
+            background: linear-gradient(#807e7c, #616056);
+            text-align: center;
+            color: #45443f;
+            font-weight: bold;
+            font-size: 1.1rem;
+    
+            &--close {
+              background-color: #dd5c24;
+              background: linear-gradient(#e2885e, #dd5c24);
+              text-align: center;
+            }
+          }
+        }
+    
+        &__whoami {
+          display: inline-block;
+          vertical-align: middle;
+          font-weight: bold;
+        }
+      }
+
+      .text-body{
+          text-align: center;
+          background-color: #f2f1f0;
+          border: 1px solid #45443f;
+          padding-bottom: 2rem;
+
+          &__title{
+              color: #4c4c4c;
+              margin: 0;
+              margin-top: 1rem;
+              font-size: 1.5rem;
+          }
+
+          &__details {
+            color: #4c4c4c;
+            margin-top: 1rem;
+          }
+
+          &__help{
+            display: inline-block;
+            margin-top: 1rem;
+          }
+      }
+    
+}
+
+// js
+.hide-alert {
+    display: none;
+}

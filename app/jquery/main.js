@@ -9,17 +9,63 @@ $(document).ready(
        const btnAdd = $('#add');
        const btnRemove = $('#remove');
        const btnClear = $('#clear');
-       if (localStorage.getItem('tasks') === null){
+       let taskArrayForNoLocalStorage = [];
+
+       if ( localStorageIsAvailable() && localStorage.getItem('tasks') === null ){
             localStorage.setItem('tasks',JSON.stringify([]))
        }
 
 
     // Operations on local storage
+       //More info on best practises:
+       //https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+
+        //Test local storage for availability
+        function localStorageIsAvailable(){
+            try {
+                // Test if local storage can be set
+                const testString = 'localStorage';
+                localStorage.setItem(testString, testString);
+                localStorage.removeItem(testString);
+
+                // If no error occures return true
+                return true
+            } catch(e){
+                // Error control if issue occures
+                return e instanceof DOMException && (
+                    // everything except Firefox
+                    e.code === 22 ||
+                    // Firefox
+                    e.code === 1014 ||
+                    // test name field too, because code might not be present
+                    // everything except Firefox
+                    e.name === 'QuotaExceededError' ||
+                    // Firefox
+                    e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+                    // acknowledge QuotaExceededError only if there's something already stored
+                    (storage && storage.length !== 0);
+            }
+        }
+
+        // Alert user on local storage potential issues
+        function alertOnLocalStorageIssues(){
+            
+            if(localStorageIsAvailable()){
+                var alert = $('#ls-issues-alert') 
+                alert.addClass('hide-alert')
+               
+            }
+        }
+
+        alertOnLocalStorageIssues()
+
+        console.log(localStorageIsAvailable()) 
 
         // Update site with new tasks state
         const updateTaskState = function(){
             const currentTasks = $('#current-tasks');
             currentTasks.empty();
+            console.log(getTasks())
             getTasks().forEach((task)=> {
                 const listItem = $('<li>' + task + '</li>');
                 
@@ -42,7 +88,11 @@ $(document).ready(
 
        //get all tasks in local storage    
        const getTasks = function(){
-        return JSON.parse(localStorage.getItem('tasks'));
+        if(localStorageIsAvailable()){
+            return JSON.parse(localStorage.getItem('tasks'));
+        } else {
+            return taskArrayForNoLocalStorage;
+        }
        }
 
        //add new task to local storage
@@ -54,7 +104,12 @@ $(document).ready(
                 newArray.push(input.val());
                 input.val('');
                 // console.log(localStorage)
-                localStorage.setItem('tasks', JSON.stringify(newArray));
+
+                if(localStorageIsAvailable()){
+                    localStorage.setItem('tasks', JSON.stringify(newArray));
+                } else {
+                    taskArrayForNoLocalStorage = newArray
+                }
                 updateTaskState();
             }
        }
@@ -63,15 +118,23 @@ $(document).ready(
        const removeLastTask =function(){
             const newArray = getTasks();
             newArray.pop();
-            localStorage.setItem('tasks', JSON.stringify(newArray));
+
+            if(localStorageIsAvailable()){
+                localStorage.setItem('tasks', JSON.stringify(newArray));
+            }
+
             updateTaskState();
        }
 
        const removeAllTasks = function(){
             const newArray = [];
-            localStorage.setItem('tasks', JSON.stringify(newArray));
+
+            if(localStorageIsAvailable()){
+                localStorage.setItem('tasks', JSON.stringify(newArray));
+            } else{
+                taskArrayForNoLocalStorage = [];
+            }
             updateTaskState();
-            
        }
 
 
