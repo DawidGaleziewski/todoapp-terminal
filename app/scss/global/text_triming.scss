@@ -1,0 +1,31 @@
+.trim-long-text {
+    position: relative;
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+     
+}
+
+.trim-long-text::after {
+    content: '...';
+    position: relative;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    bottom: 0;
+}
+
+.highlight-long-text {
+    padding: 12px;
+    margin: 1rem;
+    width: 90%;
+    white-space: wrap;
+    word-break: break-all;
+    text-indent: 1rem;
+
+    border: 1px solid #45443f;
+    border-radius: 1px;
+}

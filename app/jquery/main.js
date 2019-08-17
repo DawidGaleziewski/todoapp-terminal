@@ -21,7 +21,20 @@ $(document).ready(
             const currentTasks = $('#current-tasks');
             currentTasks.empty();
             getTasks().forEach((task)=> {
-                currentTasks.append('<li>' + task + '</li>').addClass('dir');
+                const listItem = $('<li>' + task + '</li>');
+                
+                if(task.length > 50) {
+                    listItem.addClass('trim-long-text')
+                    
+                    listItem.click(function(){
+                        listItem.toggleClass('trim-long-text');
+                        listItem.toggleClass('highlight-long-text')
+                    })
+                }
+
+                listItem.addClass('dir');
+
+                currentTasks.append(listItem)
             })
 
             createFolders();
@@ -95,19 +108,35 @@ $(document).ready(
             foldersTray.empty();
             const tasks = getTasks()
             tasks.forEach((task)=>{
-                foldersTray.append(
-                    `<div class="folder">
-                        <span class="folder__icon">
+
+                const folder = $(`<div class="folder">
+                <span class="folder__icon">
+                </span>
+                </div>`);
+
+                const folderTitle = $(`
+                    <span class="folder__title">
+                        ${task}
+                    </span>
+                `)
+
+                // Trim text if the title is longer than it should
+                if(task.length > 15) {
+                    folderTitle.addClass('trim-long-text');
+                    folderTitle.click(function(){
+                        folderTitle.toggleClass('trim-long-text');
+                        folderTitle.toggleClass('highlight-long-text')
+                    })
+                }
+
+                folder.append(folderTitle)
+
+                foldersTray.append(folder)
     
-                        </span>
-                        <span class="folder__title">
-                                ${task}
-                        </span>
-                    </div>`);    
             })
+            
         }
 
-        // createFolders()
 
         // Load all tasks from local storage
         updateTaskState();

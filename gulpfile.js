@@ -107,9 +107,9 @@ function watch(){
     gulp.watch('./app/*.html').on('change', browserSync.reload);
 
     // Watch for pre-javaScript changes, apply changes to the files on save
-    gulp.watch('app/pre-js/**/*.js', javascript).on('change', browserSync.reload);
+    // gulp.watch('app/pre-js/**/*.js', javascript).on('change', browserSync.reload);
 
-    gulp.watch('./app/img/*', images);
+    // gulp.watch('./app/img/*', images);
 
 }
 
