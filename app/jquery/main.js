@@ -23,7 +23,7 @@ $(document).ready(
             getTasks().forEach((task)=> {
                 const listItem = $('<li>' + task + '</li>');
                 
-                if(task.length > 50) {
+                if(task.length > 20) {
                     listItem.addClass('trim-long-text')
                     
                     listItem.click(function(){
