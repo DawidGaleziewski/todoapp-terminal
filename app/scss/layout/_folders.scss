@@ -1,5 +1,6 @@
 // FOLDERS-TRAY START
 .folders-tray{
+
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
@@ -12,10 +13,10 @@
     
   
     .folder {
-  
+      
       display: inline-block;
       margin: 2rem 1rem;
-  
+
       .folder__icon {
         display: block;
         position: relative;
@@ -59,3 +60,24 @@
     }
   }
   // FOLDERS-TRAY END
+
+  .animate-created-folder {
+    animation: folder-popup 2s ease-in 0.5s;
+  }
+
+  //Animation
+  @keyframes folder-popup {
+    0% {
+      transform: rotateZ(-30deg) scale(0.7, 0.7)
+    }
+
+    50% {
+      transform: rotateZ(10deg) scale(1.2, 1.2)
+    }
+
+    100% {
+      transform: rotateZ(0deg) scale(1, 1)
+    }
+
+  }
+  

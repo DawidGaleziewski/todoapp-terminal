@@ -59,15 +59,13 @@ $(document).ready(
 
         alertOnLocalStorageIssues()
 
-        console.log(localStorageIsAvailable()) 
-
         // Update site with new tasks state
         const updateTaskState = function(){
             const currentTasks = $('#current-tasks');
             currentTasks.empty();
-            console.log(getTasks())
-            getTasks().forEach((task)=> {
-                const listItem = $('<li>' + task + '</li>');
+
+            getTasks().forEach((task, index)=> {
+                const listItem = $(`<li>Task number ${++index}: ${task}</li>`);
                 
                 if(task.length > 20) {
                     listItem.addClass('trim-long-text')
@@ -102,6 +100,7 @@ $(document).ready(
             if(input.val() !== ''){
                 let newArray = getTasks();
                 newArray.push(input.val());
+
                 input.val('');
                 // console.log(localStorage)
 
@@ -112,6 +111,7 @@ $(document).ready(
                 }
                 updateTaskState();
             }
+            animateCreatedFolder();
        }
 
        // remove last task from local storage
@@ -126,6 +126,7 @@ $(document).ready(
             updateTaskState();
        }
 
+
        const removeAllTasks = function(){
             const newArray = [];
 
@@ -137,24 +138,16 @@ $(document).ready(
             updateTaskState();
        }
 
-
-
-
-
-        
        // Preventing form from refreshing on submit
         form.submit(function(event){
             event.preventDefault();
         })
 
-        // seems the button gets clicked two times for some reason
         // Adding items to list
         btnAdd.click(function(){
             addTask() 
         })
                 
-        
-
         // Removing items
         btnRemove.click(function(){
             removeLastTask();
@@ -164,6 +157,12 @@ $(document).ready(
         btnClear.click(function(){
             removeAllTasks();
         })
+
+        const animateCreatedFolder = () => {
+            $('.folder').last().addClass('animate-created-folder')
+            // $('.folder').last().removeClass('animate-created-folder')
+            // console.log($('.folder').last())
+        }
 
         // Creating folders 
         const createFolders = function(){
@@ -196,8 +195,8 @@ $(document).ready(
 
                 foldersTray.append(folder)
     
+                
             })
-            
         }
 
 
